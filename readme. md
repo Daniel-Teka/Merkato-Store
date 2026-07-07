@@ -1,0 +1,49 @@
+merkato-store/
+│
+├── backend/                             # Node.js + Express REST API Engine
+│   ├── config/
+│   │   └── db.js                        # Database pool configuration
+│   ├── controllers/
+│   │   ├── authController.js            # User Sign up, Log in, edit name/password profiles
+│   │   ├── adminController.js           # Admin account creations
+│   │   └── logController.js             # Controls system issue logs & customizable expiry limits
+│   ├── models/
+│   │   ├── User.js                      # User schema (Username, encrypted password, role)
+│   │   ├── LogRecord.js                 # User login timestamp logging records
+│   │   └── IssueLog.js                  # Platform bug logs with variable expiration times
+│   ├── routes/
+│   │   ├── authRoutes.js                # /api/auth endpoints
+│   │   └── logRoutes.js                 # /api/logs endpoints
+│   └── server.js                        # System backend entry execution point
+│
+├── frontend/                            # React Client Source Code (Vite build)
+│   ├── public/
+│   ├── src/
+│   │   ├── components/                  # Global Reusable Elements
+│   │   │   ├── Navbar.jsx               # References global context to show live cart badge count
+│   │   │   ├── Footer.jsx               # Universal bottom links layout
+│   │   │   ├── ProductCard.jsx          # Reusable item layout with "Add to Cart" button
+│   │   │   └── ProtectedRoute.jsx       # Route blocker validation for /admin layout
+│   │   │
+│   │   ├── context/
+│   │   │   └── CartContext.jsx          # Global React state logic for managing cart arrays
+│   │   │
+│   │   ├── pages/                       # Screen views tied to routes
+│   │   │   ├── Home.jsx                 # Main site landing template
+│   │   │   ├── Products.jsx             # Grid view for searching/filtering inventory items
+│   │   │   ├── Cart.jsx                 # Core Cart View container displaying review lists
+│   │   │   │   ├── CartItemRow.jsx      # Sub-component: unique row for item modifiers
+│   │   │   │   └── CartSummary.jsx      # Sub-component: summary calculations block
+│   │   │   ├── Contact.jsx              # Customer inquiry inputs layout
+│   │   │   ├── Auth.jsx                 # User profile administration (sign up, logs, updates)
+│   │   │   └── AdminDashboard.jsx       # Dashboard containing system issue trackers
+│   │   │
+│   │   ├── App.jsx                      # Maps application layout and <Route> paths
+│   │   ├── index.css                    # Global styling imports (Tailwind CSS)
+│   │   └── main.jsx                     # Boots application node tree straight to HTML DOM
+│   │
+│   ├── index.html                       # Core layout template shell
+│   ├── package.json                     # System packages and project setups script declarations
+│   └── vite.config.js                   # Builder settings configurations
+│
+└── README.md                            # Comprehensive execution instructions manual
